@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/03/25 16:55:53 by tanas            ###   ########.fr       */
+/*   Updated: 2023/03/25 17:17:05 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	error_check(argc, argv);
+	error_check( argv);
 	if (argc > 2) // ./push_swap 1 2 4
 	{
 		return 2;
