@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/03/25 16:55:53 by tanas            ###   ########.fr       */
+/*   Created: 2023/03/25 15:46:09 by tanas             #+#    #+#             */
+/*   Updated: 2023/03/25 17:15:05 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+Check for non-integer inputs
+Check if argv number is a number
+Check for duplicates
+Check if stack is already sorted
+*/
 
-// top pointer points to the node at the top of the stack 
-int	main(int argc, char **argv)
+int	isnum(char *num)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	int	i;
 
-	error_check(argc, argv);
-	if (argc > 2) // ./push_swap 1 2 4
+	i = -1;
+	while (num[++i])
 	{
-		return 2;
+		if (!ft_isdigit(num[i]))
+			return (0);
 	}
-	else if (argc == 2) // ./push_swap "1 2 4"
+}
+
+void	error_check(char **argv)
+{
+	int	i;
+
+	i = -1;
+	while (argv[++i])
 	{
-		return 1;
+		// if ()
 	}
-	return (0);
 }

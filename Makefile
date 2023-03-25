@@ -6,7 +6,7 @@
 #    By: tanas <tanas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 20:23:05 by tanas             #+#    #+#              #
-#    Updated: 2023/03/20 18:40:28 by tanas            ###   ########.fr        #
+#    Updated: 2023/03/25 15:14:04 by tanas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ COLOUR_RESET 	= "\033[0m"
 all : $(NAME)
 
 $(NAME) : $(LIBFT) $(OBJS)
-	@echo $(YELLOW)"Creating Push_Swap executable."$(COLOUR_RESET)
+	@echo $(YELLOW)"\nCreating Push_Swap executable."$(COLOUR_RESET)
 	@cc $(C_FLAGS) $(INCLUDES) $(OBJS) $(LIBFT) -o $@
 	@echo $(GREEN)"Push_Swap is ready. ✅\n"$(COLOUR_RESET)
 
