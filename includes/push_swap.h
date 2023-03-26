@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/03/25 16:58:16 by tanas            ###   ########.fr       */
+/*   Updated: 2023/03/26 16:51:11 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 # define YELLOW "\033[0;33m"
 # define WHITE "\033[0m"
 
+// EXIT CODES
+# define ERR_NON_NUMERIC 1
+# define ERR_DUPLICATES 2
+
 // STRUCTS
 typedef struct s_stack
 {
@@ -35,6 +39,7 @@ typedef struct s_stack
 void	sa(int *a1, int *a2);
 void	sb(int *b1, int *b2);
 void	ss(int *a1, int *a2, int *b1, int *b2);
-void	error_check(char **argv);
+void	multi_argv_check(char **argv);
+void	single_argv_check(char *argv);
 
 #endif

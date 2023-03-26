@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 12:35:15 by tanas             #+#    #+#             */
-/*   Updated: 2023/02/26 15:50:14 by tanas            ###   ########.fr       */
+/*   Updated: 2023/03/26 16:51:39 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+// ---------------------- ERROR-UTILS ------------------------------------
+void	ft_error(char *message, int err);
 
 // ---------------------- IS-UTILS ---------------------------------------
 int		ft_isalnum(int c);

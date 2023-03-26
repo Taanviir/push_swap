@@ -6,16 +6,15 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 11:46:59 by tanas             #+#    #+#             */
-/*   Updated: 2022/11/14 14:11:02 by tanas            ###   ########.fr       */
+/*   Updated: 2023/03/26 16:34:01 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// 0 returned if no alphanumeric char found and 1 returned if found
 int	ft_isalnum(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') \
-		|| (c >= '0' && c <= '9'))
-		return (1);
-	return (0);
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') \
+		|| (c >= '0' && c <= '9'));
 }

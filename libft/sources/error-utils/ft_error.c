@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 11:49:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/03/26 16:20:22 by tanas            ###   ########.fr       */
+/*   Created: 2023/03/26 16:50:52 by tanas             #+#    #+#             */
+/*   Updated: 2023/03/26 16:51:07 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// 0 returned if no ascii char found and 1 returned if found
-int	ft_isascii(int c)
+void	ft_error(char *message, int err)
 {
-	return (c >= 0 && c <= 127);
+	ft_putendl_fd(message, 1);
+	exit(err);
 }
