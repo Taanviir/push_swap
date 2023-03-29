@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/03/26 16:51:05 by tanas            ###   ########.fr       */
+/*   Updated: 2023/03/29 17:26:19 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,14 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	stack_a = NULL;
 	t_stack	*stack_b;
+	char	**validated_args;
 
+	if (argc < 2)
+		return (ERR_NO_PARAMS);
+	argv++;
+	validated_args = argv_check(argv, argc);
+	stack_a = NULL;
 	stack_b = NULL;
-	if (argc > 2) // ./push_swap 1 2 4
-	{
-		multi_argv_check(argv);
-		return 2;
-	}
-	else if (argc == 2) // ./push_swap "1 2 4"
-	{
-		single_argv_check(argv[1]);
-		return 1;
-	}
-	return (0);
+	// free double pointer validated args
 }

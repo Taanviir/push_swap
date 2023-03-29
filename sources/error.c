@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 15:46:09 by tanas             #+#    #+#             */
-/*   Updated: 2023/03/26 17:16:52 by tanas            ###   ########.fr       */
+/*   Updated: 2023/03/29 17:25:58 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ static int	isnum(char *num)
 
 	i = -1;
 	while (num[++i])
+	{
+		i += (num[i] == '+' || num[i] == '-');
 		if (!ft_isdigit(num[i]))
 			return (0);
+	}
 	return (1);
 }
 
@@ -48,7 +51,7 @@ static int	find_dup(char **argv)
 	int	i;
 	int	j;
 
-	i = 0;
+	i = -1;
 	while (argv[++i])
 	{
 		j = i + 1;
@@ -62,32 +65,22 @@ static int	find_dup(char **argv)
 	return (1);
 }
 
-void	multi_argv_check(char **argv)
+char	**argv_check(char **argv, int argc)
 {
-	int	i;
+	int		i;
+	char	**strings;
 
-	i = 0;
-	while (argv[++i])
-	{
-		if (!isnum(argv[i]))
-			ft_error("Error.", ERR_NON_NUMERIC);
-	}
-	if (!find_dup(argv))
-		ft_error("Error.", ERR_DUPLICATES);
-}
-
-void	single_argv_check(char *nums)
-{
-	int	i;
-
+	if (argc == 2)
+		strings = ft_split(argv[0], ' ');
+	else
+		strings = argv;
 	i = -1;
-	while (nums[++i])
+	while (strings[++i])
 	{
-		if (nums[i] == ' ')
-			i++;
-		if (!ft_isdigit(nums[i]))
+		if (!isnum(strings[i]))
 			ft_error("Error.", ERR_NON_NUMERIC);
 	}
-	// if (!find_dup(&nums))
-	// 	ft_error("Error.", ERR_DUPLICATES);
+	if (!find_dup(strings))
+		ft_error("Error.", ERR_DUPLICATES);
+	return (strings);
 }
