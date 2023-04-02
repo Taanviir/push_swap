@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 15:46:09 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/02 15:05:41 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/02 16:48:26 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ char	**argv_check(char **argv, int argc)
 	int		i;
 	int		zeroes;
 
-	if (argc < 2)
-		ft_error("Error.", ERR_NO_PARAMS);
+	if (!check_empty(argv[0]))
+		ft_error("", ERR_NO_PARAMS);
 	if (argc == 2)
 		strings = ft_split(argv[0], ' ');
 	else
@@ -96,12 +96,12 @@ char	**argv_check(char **argv, int argc)
 	while (strings[++i])
 	{
 		if (!isnum(strings[i]))
-			ft_error("Error.", ERR_NON_NUMERIC);
+			ft_error_ps(ERR_NON_NUMERIC, argc, strings);
 		zeroes += find_zeroes(strings[i]);
 	}
 	if (zeroes > 1)
-		ft_error("Error.", ERR_DUPLICATES);
+		ft_error_ps(ERR_DUPLICATES, argc, strings);
 	if (!find_dup(strings))
-		ft_error("Error.", ERR_DUPLICATES);
+		ft_error_ps(ERR_DUPLICATES, argc, strings);
 	return (strings);
 }

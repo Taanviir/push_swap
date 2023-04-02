@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 11:53:48 by tanas             #+#    #+#             */
-/*   Updated: 2022/11/16 15:13:45 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/02 15:31:03 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (n--)
 	{
 		if (string[i] == (char) c)
-			return ((void *) &s[i]);
+			return ((void *)(string + i));
 		i++;
 	}
 	return (0);
