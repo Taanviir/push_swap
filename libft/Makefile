@@ -14,7 +14,7 @@ SRCS 		= $(SRC_PATH)/error-utils/ft_error.c \
 			$(SRC_PATH)/linked-list/ft_lstadd_back.c $(SRC_PATH)/linked-list/ft_lstadd_front.c $(SRC_PATH)/linked-list/ft_lstclear.c $(SRC_PATH)/linked-list/ft_lstdelone.c \
 			$(SRC_PATH)/linked-list/ft_lstiter.c $(SRC_PATH)/linked-list/ft_lstlast.c $(SRC_PATH)/linked-list/ft_lstmap.c $(SRC_PATH)/linked-list/ft_lstnew.c $(SRC_PATH)/linked-list/ft_lstsize.c \
 			$(SRC_PATH)/memory-utils/ft_bzero.c $(SRC_PATH)/memory-utils/ft_calloc.c $(SRC_PATH)/memory-utils/ft_memchr.c $(SRC_PATH)/memory-utils/ft_memcmp.c $(SRC_PATH)/memory-utils/ft_memcpy.c \
-			$(SRC_PATH)/memory-utils/ft_memmove.c $(SRC_PATH)/memory-utils/ft_memset.c \
+			$(SRC_PATH)/memory-utils/ft_memmove.c $(SRC_PATH)/memory-utils/ft_memset.c $(SRC_PATH)/memory-utils/free_double_pointer.c\
 			$(SRC_PATH)/put-utils/ft_putchar_fd.c $(SRC_PATH)/put-utils/ft_putendl_fd.c $(SRC_PATH)/put-utils/ft_putnbr_fd.c $(SRC_PATH)/put-utils/ft_putstr_fd.c \
 			$(SRC_PATH)/string-utils/ft_split.c $(SRC_PATH)/string-utils/ft_strchr.c $(SRC_PATH)/string-utils/ft_strdup.c $(SRC_PATH)/string-utils/ft_striteri.c $(SRC_PATH)/string-utils/ft_strjoin.c \
 			$(SRC_PATH)/string-utils/ft_strlcat.c $(SRC_PATH)/string-utils/ft_strlcpy.c $(SRC_PATH)/string-utils/ft_strlen.c $(SRC_PATH)/string-utils/ft_strmapi.c $(SRC_PATH)/string-utils/ft_strncmp.c \

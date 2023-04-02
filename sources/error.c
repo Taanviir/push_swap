@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 15:46:09 by tanas             #+#    #+#             */
-/*   Updated: 2023/03/29 17:25:58 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/02 15:05:41 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,42 @@ static int	find_dup(char **argv)
 	return (1);
 }
 
+// finding zeroes and repeating zeroes like 0 00 000
+static int	find_zeroes(char *num)
+{
+	int	i;
+
+	i = 0;
+	i += (num[i] == '+' || num[i] == '-');
+	while (num[i] && num[i] == '0')
+		i++;
+	if (num[i] != '\0')
+		return (0);
+	return (1);
+}
+
 char	**argv_check(char **argv, int argc)
 {
-	int		i;
 	char	**strings;
+	int		i;
+	int		zeroes;
 
+	if (argc < 2)
+		ft_error("Error.", ERR_NO_PARAMS);
 	if (argc == 2)
 		strings = ft_split(argv[0], ' ');
 	else
 		strings = argv;
 	i = -1;
+	zeroes = 0;
 	while (strings[++i])
 	{
 		if (!isnum(strings[i]))
 			ft_error("Error.", ERR_NON_NUMERIC);
+		zeroes += find_zeroes(strings[i]);
 	}
+	if (zeroes > 1)
+		ft_error("Error.", ERR_DUPLICATES);
 	if (!find_dup(strings))
 		ft_error("Error.", ERR_DUPLICATES);
 	return (strings);

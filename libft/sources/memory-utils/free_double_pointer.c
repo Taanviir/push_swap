@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_double_pointer.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/02 15:07:35 by tanas            ###   ########.fr       */
+/*   Created: 2023/03/29 17:31:06 by tanas             #+#    #+#             */
+/*   Updated: 2023/03/29 17:31:17 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-// top pointer points to the node at the top of the stack 
-int	main(int argc, char **argv)
+void	free_double_ptr(void **double_ptr)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	char	**validated_args;
+	int	i;
 
-	argv++;
-	validated_args = argv_check(argv, argc);
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc == 2)
-		free_double_ptr((void **) validated_args);
+	if (!double_ptr)
+		return ;
+	i = 0;
+	while (double_ptr[i])
+	{
+		free(double_ptr[i]);
+		i++;
+	}
+	free(double_ptr);
 }
