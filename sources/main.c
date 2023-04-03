@@ -6,25 +6,26 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/02 16:50:11 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/03 16:57:07 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// top pointer points to the node at the top of the stack 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack	*stack_b;
+	// t_stack	*stack_b;
 	char	**validated_args;
 
 	if (argc < 2)
 		return (ERR_NO_PARAMS);
 	argv++;
-	validated_args = argv_check(argv, argc);
 	stack_a = NULL;
-	stack_b = NULL;
+	validated_args = argv_check(argv, argc);
+	stack_a = fill_stack_a(stack_a, validated_args, argc);
+	// stack_b = NULL;
 	if (argc == 2)
 		free_double_ptr((void **) validated_args);
+	// free stacks
 }

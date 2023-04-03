@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:21:35 by tanas             #+#    #+#             */
-/*   Updated: 2023/01/10 17:12:21 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/03 14:39:05 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*get_line(char *stash)
 		return (NULL);
 	while (stash[i] && stash[i] != '\n')
 		i++;
-	line = (char *) malloc(i + 2);
+	line = malloc(i + 2);
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -47,7 +47,7 @@ char	*read_file(int fd, char *stash)
 	char	*buffer;
 	int		bytes_read;
 
-	buffer = (char *) malloc(BUFFER_SIZE + 1);
+	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
 	bytes_read = 1;
@@ -82,7 +82,7 @@ char	*update_stash(char *old_stash)
 		free(old_stash);
 		return (NULL);
 	}
-	updated_stash = (char *) malloc(ft_strlen(old_stash) - i + 1);
+	updated_stash = malloc(ft_strlen(old_stash) - i + 1);
 	if (!updated_stash)
 		return (NULL);
 	i++;

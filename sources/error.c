@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 15:46:09 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/02 16:48:26 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/03 16:52:58 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,27 +81,27 @@ static int	find_zeroes(char *num)
 
 char	**argv_check(char **argv, int argc)
 {
-	char	**strings;
+	char	**nums_strings;
 	int		i;
 	int		zeroes;
 
 	if (!check_empty(argv[0]))
 		ft_error("", ERR_NO_PARAMS);
 	if (argc == 2)
-		strings = ft_split(argv[0], ' ');
+		nums_strings = ft_split(argv[0], ' ');
 	else
-		strings = argv;
+		nums_strings = argv;
 	i = -1;
 	zeroes = 0;
-	while (strings[++i])
+	while (nums_strings[++i])
 	{
-		if (!isnum(strings[i]))
-			ft_error_ps(ERR_NON_NUMERIC, argc, strings);
-		zeroes += find_zeroes(strings[i]);
+		if (!isnum(nums_strings[i]))
+			ft_error_ps(ERR_NON_NUMERIC, argc, nums_strings);
+		zeroes += find_zeroes(nums_strings[i]);
 	}
 	if (zeroes > 1)
-		ft_error_ps(ERR_DUPLICATES, argc, strings);
-	if (!find_dup(strings))
-		ft_error_ps(ERR_DUPLICATES, argc, strings);
-	return (strings);
+		ft_error_ps(ERR_DUPLICATES, argc, nums_strings);
+	if (!find_dup(nums_strings))
+		ft_error_ps(ERR_DUPLICATES, argc, nums_strings);
+	return (nums_strings);
 }

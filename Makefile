@@ -6,7 +6,7 @@
 #    By: tanas <tanas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 20:23:05 by tanas             #+#    #+#              #
-#    Updated: 2023/04/02 16:50:22 by tanas            ###   ########.fr        #
+#    Updated: 2023/04/03 17:15:41 by tanas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCS_DIR = sources/
 SRCS_LIST = main.c \
 			operations.c \
 			error.c \
-			error2.c
+			error2.c \
+			stack.c
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
 
 OBJS_DIR = objects/
@@ -37,9 +38,9 @@ COLOUR_RESET 	= "\033[0m"
 all : $(NAME)
 
 $(NAME) : $(LIBFT) $(OBJS)
-	@echo $(YELLOW)"\nCreating Push_Swap executable."$(COLOUR_RESET)
+	@echo $(YELLOW)"\nCreating push_swap executable."$(COLOUR_RESET)
 	@cc $(C_FLAGS) $(INCLUDES) $(OBJS) $(LIBFT) -o $@
-	@echo $(GREEN)"Push_Swap is ready. ✅\n"$(COLOUR_RESET)
+	@echo $(GREEN)"push_swap is ready. ✅\n"$(COLOUR_RESET)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HEADERS)
 	@mkdir -p $(OBJS_DIR)
