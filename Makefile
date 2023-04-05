@@ -6,7 +6,7 @@
 #    By: tanas <tanas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 20:23:05 by tanas             #+#    #+#              #
-#    Updated: 2023/04/03 17:15:41 by tanas            ###   ########.fr        #
+#    Updated: 2023/04/05 15:06:51 by tanas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,10 @@ INCLUDES = -Iincludes/ -Ilibft/includes/
 SRCS_DIR = sources/
 SRCS_LIST = main.c \
 			operations.c \
-			error.c \
-			error2.c \
-			stack.c
+			parse.c \
+			parse2.c \
+			stack.c \
+			stack_utils.c
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
 
 OBJS_DIR = objects/
