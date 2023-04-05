@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	is_sorted(int *numbers, int arr_len)
+int	nums_are_sorted(int *numbers, int arr_len)
 {
 	int	i;
 

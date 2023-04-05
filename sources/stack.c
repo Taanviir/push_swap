@@ -39,7 +39,7 @@ t_stack	*fill_stack_a(t_stack *stack_a, char **nums_string, int argc)
 	i = -1;
 	while (++i < arr_len)
 		numbers[i] = ft_atoi(nums_string[i]);
-	if (!is_sorted(numbers, arr_len))
+	if (nums_are_sorted(numbers, arr_len))
 	{
 		free(numbers);
 		return (NULL);
@@ -49,4 +49,19 @@ t_stack	*fill_stack_a(t_stack *stack_a, char **nums_string, int argc)
 		add_node_to_top(&stack_a, numbers[i]);
 	free(numbers);
 	return (stack_a);
+}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*temp;
+
+	current = *stack;
+	while (current != NULL)
+	{
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+	*stack = NULL;
 }

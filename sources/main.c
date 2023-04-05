@@ -27,5 +27,5 @@ int	main(int argc, char **argv)
 	// stack_b = NULL;
 	if (argc == 2)
 		free_double_ptr((void **) validated_args);
-	// free stacks
+	free_stack(&stack_a);
 }

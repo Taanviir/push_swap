@@ -42,10 +42,12 @@ typedef struct s_stack
 char	**argv_check(char **argv, int argc);
 void	ft_error_ps(int err, int argc, char **nums_strings);
 int		check_empty(char *argv);
-int		is_sorted(int *numbers, int arr_len);
+int		nums_are_sorted(int *numbers, int arr_len);
 
 // STACK FILL FUNCTIONS
 t_stack	*fill_stack_a(t_stack *stack_a, char **nums_string, int argc);
 void	add_node_to_top(t_stack **stack_a, int num);
+
+void	free_stack(t_stack **stack);
 
 #endif
