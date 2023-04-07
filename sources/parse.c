@@ -11,44 +11,30 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#define MAXINT "2147483647"
+#define MININT "2147483648"
 
-static int isnum(char *num)
+// skips the leading zeroes, + and minus then checks for numbers only
+// and for number withing limits. 0 returned if invalid num found
+static int	check_num(char *num)
 {
 	int	i;
-	int	digit_count;
-	int	sign_count;
+	int	sign;
 
-	i = (num[0] == '-' || num[0] == '+');
-	sign_count = (num[0] == '-' || num[0] == '+');
-	digit_count = 0;
+	sign = (num[0] == '-');
+	num += (*num == '+' || *num == '-');
+	while (*num == '0')
+		num++;
+	i = -1;
 	while (num[++i])
-	{
-		if (!ft_isdigit(num[i]))
+		if (!ft_isdigit(num[i]) || i > 10)
 			return (0);
-		digit_count++;
-	}
-	if (digit_count > 10)
+	if (!sign && (ft_strncmp(num, MAXINT, i) > 0))
 		return (0);
-	else if ((sign_count == 0 && ft_strncmp(num, "2147483647", i) > 0) \
-		|| (sign_count == 1 && ft_strncmp(num + 1, "2147483648", i) > 0))
+	else if (sign && (ft_strncmp(num, MININT, i) > 0))
 		return (0);
 	return (1);
 }
-
-// checking for numbers only. 0 returned if non-digit char found
-// static int	isnum(char *num)
-// {
-// 	int	i;
-
-// 	i = -1;
-// 	while (num[++i])
-// 	{
-// 		i += (num[i] == '+' || num[i] == '-');
-// 		if (!ft_isdigit(num[i]))
-// 			return (0);
-// 	}
-// 	return (1);
-// }
 
 // comparing numbers and checking for duplicates
 static int	ft_nbrcmp(const char *s1, const char *s2)
@@ -117,7 +103,7 @@ char	**argv_check(char **argv, int argc)
 	zeroes = 0;
 	while (nums_strings[++i])
 	{
-		if (!isnum(nums_strings[i]))
+		if (!check_num(nums_strings[i]))
 			ft_error_ps(ERR_NON_NUMERIC, argc, nums_strings);
 		zeroes += find_zeroes(nums_strings[i]);
 	}
