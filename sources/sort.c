@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:48:52 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/09 15:55:40 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/09 18:16:02 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	sort_three(t_stack *stack_a, t_stack *stack_b)
 {
-	(void) stack_a;
-	(void) stack_b;
 	return ;
 }

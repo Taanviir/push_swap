@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/09 18:09:41 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/09 18:14:14 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_stack	*fill_stack_a(int *numbers, int arr_len)
 {
 	t_stack	*stack_a;
 	t_stack	*pointer;
-	int	i;
+	int		i;
 
 	stack_a = malloc(sizeof(t_stack));
 	if (!stack_a)
