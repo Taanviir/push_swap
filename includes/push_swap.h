@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/05 17:06:15 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/09 18:11:57 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 // STRUCTS
 typedef struct s_stack
 {
-	int				value;
+	int				data;
 	struct s_stack	*next;
 }		t_stack;
 
@@ -47,8 +47,11 @@ int		nums_are_sorted(int *numbers, int arr_len);
 int		skip_chars(const char *string);
 
 // STACK FUNCTIONS
-void	fill_stack_a(t_stack **stack_a, char **nums_strings, int argc);
+t_stack	*fill_stack_a(int *numbers, int arr_len);
+int		*get_numbers(char **num_strings, int argc);
 void	free_stack(t_stack **stack);
-int		get_stack_size(t_stack *stack);
+
+// SORT FUNCTIONS
+void	sort_three(t_stack *stack_a, t_stack *stack_b);
 
 #endif

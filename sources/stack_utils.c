@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:01:22 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/05 15:32:56 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/09 18:11:51 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,8 @@ int	nums_are_sorted(int *numbers, int arr_len)
 	while (++i < (arr_len - 1))
 		if (numbers[i] > numbers[i + 1])
 			return (0);
+	free(numbers);
 	return (1);
-}
-
-int	get_stack_size(t_stack *stack)
-{
-	t_stack	*current;
-	int		size;
-
-	current = stack;
-	size = 0;
-	while (current != NULL)
-	{
-		size++;
-		current = current->next;
-	}
-	return (size);
 }
 
 // freeing a stack after sorting

@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 15:46:09 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/05 17:29:46 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/09 15:13:53 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static int	check_num(char *num)
 	while (num[++i])
 		if (!ft_isdigit(num[i]) || i > 10)
 			return (0);
-	if (!sign && (ft_strncmp(num, MAXINT, i) > 0))
+	if (i == 10 && !sign && (ft_strncmp(num, MAXINT, i) > 0))
 		return (0);
-	else if (sign && (ft_strncmp(num, MININT, i) > 0))
+	else if (i == 10 && sign && (ft_strncmp(num, MININT, i) > 0))
 		return (0);
 	return (1);
 }
