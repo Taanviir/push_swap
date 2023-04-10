@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:47:35 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/03 14:39:16 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/10 15:37:23 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strjoin(char *stash, char *buffer)
 	}
 	if (!stash || !buffer)
 		return (NULL);
-	string = malloc(ft_strlen(stash) + ft_strlen(buffer) + 1);
+	string = malloc(ft_strlen(stash) + ft_strlen(buffer) + 2);
 	if (!string)
 		return (NULL);
 	i = -1;
@@ -35,7 +35,8 @@ char	*ft_strjoin(char *stash, char *buffer)
 			string[i] = stash[i];
 	while (buffer[j])
 		string[i++] = buffer[j++];
-	string[i] = '\0';
+	string[i] = ' ';
+	string[++i] = '\0';
 	free(stash);
 	return (string);
 }

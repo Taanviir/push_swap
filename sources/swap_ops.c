@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 15:48:52 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/10 17:42:55 by tanas            ###   ########.fr       */
+/*   Created: 2023/03/16 12:06:55 by tanas             #+#    #+#             */
+/*   Updated: 2023/04/10 16:52:35 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-1	3	2	sa->	3	1	2	ra->	1	2	3
-3	2	1 	sa->	2	3	1	rra->	1	2	3
-2	3	1	rra->	1	2	3
-2	1	3 	sa->	1	2	3
-3	1	2 	ra->	1	2	3
-*/
-
-void	sort_three(t_stack *stack_a)
+// sa and sb
+void	sa(int *a1, int *a2, int print)
 {
-	if (stack_a->data > stack_a->last->data)
-	{
-		sa(&stack_a->data, &stack_a->next->data, 0);
-		
-	}
+	*a1 = *a1 - *a2;
+	*a2 = *a1 + *a2;
+	*a1 = *a2 - *a1;
+	if (!print)
+		ft_printf("sa\n");
+}
+
+void	sb(int *b1, int *b2, int print)
+{
+	*b1 = *b1 - *b2;
+	*b2 = *b1 + *b2;
+	*b1 = *b2 - *b1;
+	if (!print)
+		ft_printf("sb\n");
+}
+
+// ss
+void	ss(int *a1, int *a2, int *b1, int *b2)
+{
+	sa(a1, a2, 1);
+	sb(b1, b2, 1);
+	ft_printf("ss\n");
 }

@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/09 18:14:41 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/10 17:46:41 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	push_swap(t_stack *stack_a, t_stack *stack_b, int stack_size)
 {
-	if (stack_size <= 3)
-		sort_three(stack_a, stack_b);
+	if (stack_size == 2)
+		sa(&stack_a->data, &stack_a->next->data, 0);
+	else if (stack_size == 3)
+		sort_three(stack_a);
+	(void) stack_b;
 	// else if (stack_size)
 }
 
@@ -25,16 +28,37 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		*numbers;
+	int		stack_size;
 
 	if (argc < 2)
 		return (ERR_NO_PARAMS);
 	argv++;
 	validated_args = argv_check(argv, argc);
-	numbers = get_numbers(validated_args, argc);
-	stack_a = fill_stack_a(numbers, argc - 1);
+	stack_size = get_stack_size(validated_args);
+	numbers = get_numbers(validated_args, stack_size);
+	if (!numbers)
+		exit(0);
+	stack_a = fill_stack_a(numbers, stack_size);
 	stack_b = NULL;
-	//push_swap(stack_a, stack_b, argc - 1);
-	if (argc == 2)
-		free_double_ptr((void **) validated_args);
+
+	printf("before sorting\n");
+	t_stack	*cur = stack_a;
+	while (cur)
+	{
+		printf("%i\n", cur->data);
+		cur = cur->next;
+	}
+	
+	push_swap(stack_a, stack_b, stack_size);
+
+	printf("\nafter sorting\n");
+	cur = stack_a;
+	while (cur)
+	{
+		printf("%i\n", cur->data);
+		cur = cur->next;
+	}
+
+	free_double_ptr((void **) validated_args);
 	free_stack(&stack_a);
 }

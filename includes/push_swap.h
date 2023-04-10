@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/09 18:11:57 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/10 17:34:20 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,28 @@ typedef struct s_stack
 {
 	int				data;
 	struct s_stack	*next;
+	struct s_stack	*last;
 }		t_stack;
 
-// PARSING FUNCTIONS
+// ERROR CHECK FUNCTIONS
 char	**argv_check(char **argv, int argc);
-void	ft_error_ps(int err, int argc, char **nums_strings);
+void	ft_error_ps(int err, char **nums_strings);
 int		check_empty(char *argv);
 int		nums_are_sorted(int *numbers, int arr_len);
 int		skip_chars(const char *string);
+char	**join_args(char **argv, int argc);
 
-// STACK FUNCTIONS
+// PARSE FUNCTIONS
 t_stack	*fill_stack_a(int *numbers, int arr_len);
-int		*get_numbers(char **num_strings, int argc);
+int		*get_numbers(char **num_strings, int arr_len);
 void	free_stack(t_stack **stack);
+int		get_stack_size(char **args);
 
 // SORT FUNCTIONS
-void	sort_three(t_stack *stack_a, t_stack *stack_b);
+void	sort_three(t_stack *stack_a);
+
+// STACK OPERATIONS
+void	sa(int *a1, int *a2, int print);
+void	sa(int *b1, int *b2, int print);
 
 #endif

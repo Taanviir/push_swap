@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:01:22 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/09 18:11:51 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/10 14:28:35 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	free_stack(t_stack **stack)
 	if (*stack == NULL)
 		return ;
 	current = *stack;
-	while (current != NULL)
+	while (current)
 	{
 		previous = current;
 		current = current->next;
