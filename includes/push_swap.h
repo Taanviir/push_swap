@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/10 17:34:20 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/11 17:33:27 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_stack
 {
 	int				data;
 	struct s_stack	*next;
-	struct s_stack	*last;
+	struct s_stack	*prev;
 }		t_stack;
 
 // ERROR CHECK FUNCTIONS
@@ -55,10 +55,14 @@ void	free_stack(t_stack **stack);
 int		get_stack_size(char **args);
 
 // SORT FUNCTIONS
-void	sort_three(t_stack *stack_a);
+void	sort_three(t_stack **stack_a);
 
 // STACK OPERATIONS
-void	sa(int *a1, int *a2, int print);
-void	sa(int *b1, int *b2, int print);
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

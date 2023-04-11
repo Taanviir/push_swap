@@ -6,20 +6,31 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/10 17:46:41 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/11 17:22:35 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_stack *stack_a, t_stack *stack_b, int stack_size)
+void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
 	if (stack_size == 2)
-		sa(&stack_a->data, &stack_a->next->data, 0);
+		sa(stack_a);
 	else if (stack_size == 3)
 		sort_three(stack_a);
 	(void) stack_b;
 	// else if (stack_size)
+}
+
+void print_list(t_stack *head) {
+    while (head != NULL) {
+		if (!head->next)
+    	    printf("%d", head->data);
+        else
+			printf("%d -> ", head->data);
+        head = head->next;
+    }
+    printf("\n");
 }
 
 int	main(int argc, char **argv)
@@ -42,22 +53,12 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 
 	printf("before sorting\n");
-	t_stack	*cur = stack_a;
-	while (cur)
-	{
-		printf("%i\n", cur->data);
-		cur = cur->next;
-	}
-	
-	push_swap(stack_a, stack_b, stack_size);
+	print_list(stack_a);
+
+	push_swap(&stack_a, &stack_b, stack_size);
 
 	printf("\nafter sorting\n");
-	cur = stack_a;
-	while (cur)
-	{
-		printf("%i\n", cur->data);
-		cur = cur->next;
-	}
+	print_list(stack_a);
 
 	free_double_ptr((void **) validated_args);
 	free_stack(&stack_a);

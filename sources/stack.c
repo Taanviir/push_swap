@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/10 17:37:08 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/11 17:38:36 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ static t_stack	*add_node_bottom(t_stack *pointer, int num)
 	if (!new_node)
 		return (NULL);
 	new_node->data = num;
-	new_node->next = NULL;
+	new_node->next = pointer->next;
+	new_node->prev = pointer;
 	pointer->next = new_node;
 	return (new_node);
 }
@@ -59,6 +60,7 @@ static t_stack	*add_node_bottom(t_stack *pointer, int num)
 t_stack	*fill_stack_a(int *numbers, int arr_len)
 {
 	t_stack	*stack_a;
+	t_stack	*last;
 	int		i;
 
 	stack_a = malloc(sizeof(t_stack));
@@ -66,10 +68,10 @@ t_stack	*fill_stack_a(int *numbers, int arr_len)
 		return (NULL);
 	stack_a->data = numbers[0];
 	stack_a->next = NULL;
-	stack_a->last = stack_a;
+	last = stack_a;
 	i = 0;
 	while (++i < arr_len)
-		stack_a->last = add_node_bottom(stack_a->last, numbers[i]);
+		last = add_node_bottom(last, numbers[i]);
 	free(numbers);
 	return (stack_a);
 }

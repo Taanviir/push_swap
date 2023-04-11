@@ -1,40 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   swap_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:06:55 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/10 16:52:35 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/11 16:34:49 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// sa and sb
-void	sa(int *a1, int *a2, int print)
+void	swap_nodes(t_stack **stack)
 {
-	*a1 = *a1 - *a2;
-	*a2 = *a1 + *a2;
-	*a1 = *a2 - *a1;
-	if (!print)
-		ft_printf("sa\n");
+	t_stack    *cur;
+	
+	cur = (*stack);
+	if ((*stack) && (*stack)->next)
+	{
+		(*stack) = (*stack)->next;
+		cur->next = (*stack)->next;
+		(*stack)->next = cur;
+	}
 }
 
-void	sb(int *b1, int *b2, int print)
+void	sa(t_stack **stack_a)
 {
-	*b1 = *b1 - *b2;
-	*b2 = *b1 + *b2;
-	*b1 = *b2 - *b1;
-	if (!print)
-		ft_printf("sb\n");
+	swap_nodes(stack_a);
+	ft_printf("sa\n");
 }
 
-// ss
-void	ss(int *a1, int *a2, int *b1, int *b2)
+void	sb(t_stack **stack_b)
 {
-	sa(a1, a2, 1);
-	sb(b1, b2, 1);
+	swap_nodes(stack_b);
+	ft_printf("sb\n");
+}
+
+void	ss(t_stack **stack_a, t_stack **stack_b)
+{
+	swap_nodes(stack_a);
+	swap_nodes(stack_b);
 	ft_printf("ss\n");
 }
