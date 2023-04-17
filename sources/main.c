@@ -6,18 +6,18 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/11 17:22:35 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/17 14:01:03 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
+void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size, t_stack **last)
 {
 	if (stack_size == 2)
 		sa(stack_a);
 	else if (stack_size == 3)
-		sort_three(stack_a);
+		sort_three(stack_a, last);
 	(void) stack_b;
 	// else if (stack_size)
 }
@@ -38,6 +38,7 @@ int	main(int argc, char **argv)
 	char	**validated_args;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	t_stack	*last_node;
 	int		*numbers;
 	int		stack_size;
 
@@ -49,13 +50,14 @@ int	main(int argc, char **argv)
 	numbers = get_numbers(validated_args, stack_size);
 	if (!numbers)
 		exit(0);
-	stack_a = fill_stack_a(numbers, stack_size);
+	stack_a = fill_stack_a(numbers, stack_size, &last_node);
+	printf("last node: %i\n", last_node->data);
 	stack_b = NULL;
 
 	printf("before sorting\n");
 	print_list(stack_a);
 
-	push_swap(&stack_a, &stack_b, stack_size);
+	push_swap(&stack_a, &stack_b, stack_size, &last_node);
 
 	printf("\nafter sorting\n");
 	print_list(stack_a);

@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/11 17:38:36 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/17 13:50:31 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,16 @@ static t_stack	*add_node_bottom(t_stack *pointer, int num)
 	if (!new_node)
 		return (NULL);
 	new_node->data = num;
-	new_node->next = pointer->next;
-	new_node->prev = pointer;
+	new_node->next = NULL;
 	pointer->next = new_node;
 	return (new_node);
 }
 
 // filling up stack A by placing first number at the beginning of the list and
 // last number at the bottom of the list
-t_stack	*fill_stack_a(int *numbers, int arr_len)
+t_stack	*fill_stack_a(int *numbers, int arr_len, t_stack **last_node)
 {
 	t_stack	*stack_a;
-	t_stack	*last;
 	int		i;
 
 	stack_a = malloc(sizeof(t_stack));
@@ -68,10 +66,10 @@ t_stack	*fill_stack_a(int *numbers, int arr_len)
 		return (NULL);
 	stack_a->data = numbers[0];
 	stack_a->next = NULL;
-	last = stack_a;
+	(*last_node) = stack_a;
 	i = 0;
-	while (++i < arr_len)
-		last = add_node_bottom(last, numbers[i]);
+	while (++i < arr_len && (*last_node))
+		(*last_node) = add_node_bottom((*last_node), numbers[i]);
 	free(numbers);
 	return (stack_a);
 }
