@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/17 14:01:03 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/17 17:37:49 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size, t_stack **l
 		sa(stack_a);
 	else if (stack_size == 3)
 		sort_three(stack_a, last);
-	(void) stack_b;
+	(void) (stack_b);
 	// else if (stack_size)
 }
 
