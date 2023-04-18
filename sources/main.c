@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/17 17:37:49 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/18 18:37:30 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size, t_stack **l
 		sa(stack_a);
 	else if (stack_size == 3)
 		sort_three(stack_a, last);
-	(void) (stack_b);
-	// else if (stack_size)
+	else
+	{
+		(*stack_b) = malloc(sizeof(t_stack));
+	}
 }
 
 void print_list(t_stack *head) {
@@ -27,7 +29,7 @@ void print_list(t_stack *head) {
 		if (!head->next)
     	    printf("%d", head->data);
         else
-			printf("%d -> ", head->data);
+			printf("%d <--> ", head->data);
         head = head->next;
     }
     printf("\n");
@@ -51,7 +53,6 @@ int	main(int argc, char **argv)
 	if (!numbers)
 		exit(0);
 	stack_a = fill_stack_a(numbers, stack_size, &last_node);
-	printf("last node: %i\n", last_node->data);
 	stack_b = NULL;
 
 	printf("before sorting\n");

@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 17:11:54 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/17 17:05:36 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/18 17:58:25 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 void	reverse_rotate_nodes(t_stack **stack, t_stack **last)
 {
 	t_stack		*second_last;
-	t_stack		*tmp;
+	t_stack		*first;
 
-	second_last = (*last)->prev;
-	tmp = (*stack);
-	(*stack) = (*last);
-	(*stack)->next = tmp;
-	second_last->next = NULL;
+	if (stack && last && (*stack)->next)
+	{
+		second_last = (*last)->prev;
+		first = (*stack);
+		(*stack) = (*last);
+		(*last) = second_last;
+		(*stack)->next = first;
+		(*last)->next = NULL;	
+	}
 }
 
 void	rra(t_stack **stack_a, t_stack **last)

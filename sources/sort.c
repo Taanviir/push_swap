@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:48:52 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/17 18:01:21 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/18 18:16:59 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	sort_three(t_stack **stack_a, t_stack **last)
 	if (index == 1)
 	{
 		sa(stack_a);
-		print_list(*stack_a);
 		ra(stack_a, last);
 	}
 	
