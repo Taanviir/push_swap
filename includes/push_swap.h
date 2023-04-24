@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/17 16:50:43 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/24 17:35:05 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ char	**join_args(char **argv, int argc);
 // PARSE FUNCTIONS
 t_stack	*fill_stack_a(int *numbers, int arr_len, t_stack **last_node);
 int		*get_numbers(char **num_strings, int arr_len);
-void	free_stack(t_stack **stack);
 int		get_stack_size(char **args);
 
 // SORT FUNCTIONS
-void	sort_three(t_stack **stack_a, t_stack **last);
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack **last);
 
 // STACK OPERATIONS
+void	free_stack(t_stack **stack, int stack_size);
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
@@ -69,6 +69,6 @@ void	rr(t_stack **stack_a, t_stack **stack_b, t_stack **last);
 void	rra(t_stack **stack_a, t_stack **last);
 void	rrb(t_stack **stack_b, t_stack **last);
 void	rrr(t_stack **stack_a, t_stack **stack_b, t_stack **last);
-void print_list(t_stack *head);
+void print_list(t_stack *head, int stack_size);
 
 #endif

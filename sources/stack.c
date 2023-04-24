@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/17 17:05:06 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/24 17:44:01 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ int	*get_numbers(char **num_strings, int arr_len)
 	while (++i < arr_len)
 		numbers[i] = ft_atoi(num_strings[i]);
 	if (nums_are_sorted(numbers, arr_len))
+	{
+		free_double_ptr((void **) num_strings);
 		return (NULL);
+	}
 	return (numbers);
 }
 
@@ -48,9 +51,9 @@ static t_stack	*add_node_bottom(t_stack *pointer, int num)
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
 		return (NULL);
-	new_node->prev = NULL;
+	new_node->prev = pointer;
 	new_node->data = num;
-	new_node->next = NULL;
+	new_node->next = pointer;
 	pointer->next = new_node;
 	new_node->prev = pointer;
 	return (new_node);
@@ -66,9 +69,9 @@ t_stack	*fill_stack_a(int *numbers, int arr_len, t_stack **last_node)
 	stack_a = malloc(sizeof(t_stack));
 	if (!stack_a)
 		return (NULL);
-	stack_a->prev = NULL;
+	stack_a->prev = stack_a;
 	stack_a->data = numbers[0];
-	stack_a->next = NULL;
+	stack_a->next = stack_a;
 	(*last_node) = stack_a;
 	i = 0;
 	while (++i < arr_len && (*last_node))

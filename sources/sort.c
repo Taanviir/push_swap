@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:48:52 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/18 18:16:59 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/24 15:36:59 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,9 @@
 2	3	1	rra->	1	2	3
 */
 
-int	get_max_index(int a, int b, int c)
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack **last)
 {
-	if (a > b && a > c)
-		return (1);
-	else if (b > a && b > c)
-		return (2);
-	else if (c > b && c > b)
-		return (3);
-	return (0);
-}
-
-void	sort_three(t_stack **stack_a, t_stack **last)
-{
-	int	a = (*stack_a)->data;
-	int	b = (*stack_a)->next->data;
-	int	c = (*last)->data;
-
-	int index = get_max_index(a, b, c);
-
-	if (index == 1)
-	{
-		sa(stack_a);
-		ra(stack_a, last);
-	}
-	
+	(void) stack_a;
+	(void) stack_b;
+	(void) last;
 }

@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/18 18:37:30 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/24 17:35:23 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size, t_stack **l
 {
 	if (stack_size == 2)
 		sa(stack_a);
-	else if (stack_size == 3)
-		sort_three(stack_a, last);
 	else
 	{
-		(*stack_b) = malloc(sizeof(t_stack));
+		radix_sort(stack_a, stack_b, last);
 	}
 }
 
-void print_list(t_stack *head) {
-    while (head != NULL) {
+void print_list(t_stack *head, int stack_size) {
+    printf("<- ");
+	while (stack_size--) {
 		if (!head->next)
     	    printf("%d", head->data);
         else
 			printf("%d <--> ", head->data);
         head = head->next;
     }
+    printf(" ->");
     printf("\n");
 }
 
@@ -55,14 +55,15 @@ int	main(int argc, char **argv)
 	stack_a = fill_stack_a(numbers, stack_size, &last_node);
 	stack_b = NULL;
 
-	printf("before sorting\n");
-	print_list(stack_a);
+	printf("before swap:\n");
+	print_list(stack_a, stack_size);
 
 	push_swap(&stack_a, &stack_b, stack_size, &last_node);
 
-	printf("\nafter sorting\n");
-	print_list(stack_a);
+	printf("after swap:\n");
+	print_list(stack_a, stack_size);
 
+	printf("%i\n", stack_a->prev->data);
 	free_double_ptr((void **) validated_args);
-	free_stack(&stack_a);
+	free_stack(&stack_a, stack_size);
 }
