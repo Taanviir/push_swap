@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:06:55 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/17 17:11:20 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/30 15:26:42 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	swap_nodes(t_stack **stack)
 {
 	t_stack	*cur;
 
-	cur = (*stack);
-	if ((*stack) && (*stack)->next)
+	cur = *stack;
+	if (*stack && (*stack)->next)
 	{
-		(*stack) = (*stack)->next;
+		*stack = (*stack)->next;
 		cur->next = (*stack)->next;
 		(*stack)->next = cur;
 	}

@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:48:52 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/24 15:36:59 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/30 15:24:33 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@
 2	3	1	rra->	1	2	3
 */
 
-void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack **last)
+void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	(void) stack_a;
 	(void) stack_b;
-	(void) last;
 }
