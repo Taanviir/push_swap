@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/30 16:26:17 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/30 16:54:08 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
-void print_list(t_stack *head, int stack_size);
+void print_list(t_stack *head);
 
 #endif

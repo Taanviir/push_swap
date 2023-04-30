@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/30 16:25:43 by tanas            ###   ########.fr       */
+/*   Updated: 2023/04/30 16:56:24 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,19 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 		sa(stack_a);
 	else
 	{
-		rra(stack_a);
+		ra(stack_a);
 		radix_sort(stack_a, stack_b);
 	}
 }
 
-void print_list(t_stack *head, int stack_size) {
-    printf("<- ");
-	while (stack_size--) {
-		if (!head->next)
-    	    printf("%d", head->data);
-        else
-			printf("%d <--> ", head->data);
-        head = head->next;
-    }
-    printf("->\n");
+void print_list(t_stack *head)
+{
+    t_stack *current = head;
+    do {
+        printf("%d ", current->data);
+        current = current->next;
+    } while (current != head);
+	printf("\n\n");
 }
 
 int	main(int argc, char **argv)
@@ -53,12 +51,12 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 
 	printf("before swap:\n");
-	print_list(stack_a, stack_size);
+	print_list(stack_a);
 
 	push_swap(&stack_a, &stack_b, stack_size);
 
-	printf("after swap:\n");
-	print_list(stack_a, stack_size);
+	printf("\nafter swap:\n");
+	print_list(stack_a);
 
 	free_double_ptr((void **) validated_args);
 	free_stack(&stack_a, stack_size);
