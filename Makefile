@@ -6,7 +6,7 @@
 #    By: tanas <tanas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 20:23:05 by tanas             #+#    #+#              #
-#    Updated: 2023/04/10 17:16:24 by tanas            ###   ########.fr        #
+#    Updated: 2023/05/01 18:03:48 by tanas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS_LIST = main.c \
 			swap_ops.c \
 			push_ops.c \
 			rotate_ops.c \
-			reverse_rotate_ops.c
+			reverse_rotate_ops.c \
+			operations.c
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
 
 OBJS_DIR = objects/
