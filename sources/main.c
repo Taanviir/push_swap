@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/01 15:51:18 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/04 22:22:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 		sa(stack_a);
 	else
 	{
-		// ra(stack_a);
-		rotate_stack(stack_a, stack_a, 'a');
 		radix_sort(stack_a, stack_b);
 	}
 }

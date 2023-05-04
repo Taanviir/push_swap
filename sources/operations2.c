@@ -3,25 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   swap_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:06:55 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/30 15:26:42 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/04 22:20:13 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_nodes(t_stack **stack)
+static void	swap_nodes(t_stack **stack)
 {
-	t_stack	*cur;
+	t_stack	*first;
+	t_stack	*second;
 
-	cur = *stack;
+	first = *stack;
+	second = (*stack)->next;
 	if (*stack && (*stack)->next)
 	{
-		*stack = (*stack)->next;
-		cur->next = (*stack)->next;
-		(*stack)->next = cur;
+		first->next = second->next;
+		second->prev = first->prev;
+		first->prev = second;
+		second->next = first;
+		second->prev->next = second;
+		first->next->prev = first;
+		*stack = second;
 	}
 }
 

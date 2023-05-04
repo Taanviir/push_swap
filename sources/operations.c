@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 16:03:35 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/01 16:04:37 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/04 22:21:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,43 @@ void	reverse_rotate_stack(t_stack **stack_a, t_stack **stack_b, char c)
 		*stack_b = (*stack_b)->prev;
 		ft_printf("rrr\n");
 	}
+}
+
+static void	push_node(t_stack **src_stack, t_stack **dst_stack)
+{
+	t_stack	*top_src;
+
+	if (*src_stack)
+	{
+		top_src = *src_stack;
+		*src_stack = (*src_stack)->next;
+		(*src_stack)->prev = top_src->prev;
+		top_src->prev->next = *src_stack;
+		if (!(*dst_stack))
+		{
+			(*dst_stack) = top_src;
+			(*dst_stack)->next = top_src;
+			(*dst_stack)->prev = top_src;
+		}
+		else
+		{
+			top_src->next = (*dst_stack);
+			top_src->prev = (*dst_stack)->prev;
+			(*dst_stack)->prev->next = top_src;
+			(*dst_stack)->prev = top_src;
+			*dst_stack = top_src;
+		}
+	}
+}
+
+void	pa(t_stack **stack_a, t_stack **stack_b)
+{
+	push_node(stack_a, stack_b);
+	ft_printf("pa\n");
+}
+
+void	pb(t_stack **stack_a, t_stack **stack_b)
+{
+	push_node(stack_b, stack_a);
+	ft_printf("pb\n");
 }
