@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:20:29 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/04 22:22:40 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/06 20:46:14 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
 	if (stack_size == 2)
-		sa(stack_a);
+		swap_ops(stack_a, NULL, 'a');
 	else
 	{
+		swap_ops(stack_a, NULL, 'a');
 		radix_sort(stack_a, stack_b);
 	}
 }

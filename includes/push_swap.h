@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/04 22:20:59 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/06 20:54:15 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,15 @@ void	fill_stack_a(t_stack **stack_a, int *numbers, int arr_len);
 int		*get_numbers(char **num_strings, int arr_len);
 int		get_stack_size(char **args);
 
-// SORT FUNCTIONS
-void	radix_sort(t_stack **stack_a, t_stack **stack_b);
-
 // STACK OPERATIONS
 void	free_stack(t_stack **stack, int stack_size);
-void	sa(t_stack **stack_a);
-void	sb(t_stack **stack_b);
-void	ss(t_stack **stack_a, t_stack **stack_b);
+void	swap_ops(t_stack **stack_a, t_stack **stack_b, char c);
+void	push_ops(t_stack **stack_a, t_stack **stack_b, char c);
 void	rotate_stack(t_stack **stack_a, t_stack **stack_b, char c);
 void	reverse_rotate_stack(t_stack **stack_a, t_stack **stack_b, char c);
 void print_list(t_stack *head);
+
+// SORT FUNCTIONS
+void	radix_sort(t_stack **stack_a, t_stack **stack_b);
 
 #endif
