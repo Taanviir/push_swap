@@ -69,13 +69,18 @@ void	add_node_bottom(t_stack **head, int num)
 
 // filling up stack A by placing first number at the beginning of the list and
 // last number at the bottom of the list
-void	fill_stack_a(t_stack **stack_a, int *numbers, int arr_len)
+void	fill_stack_a(t_stack **stack_a, int *numbers, int stack_size)
 {
 	int		i;
 
 	(*stack_a) = NULL;
 	i = -1;
-	while (++i < arr_len)
+	while (++i < stack_size)
 		add_node_bottom(stack_a, numbers[i]);
 	free(numbers);
+	if (stack_is_sorted(*stack_a))
+	{
+		free_stack(stack_a, stack_size);
+		exit(0);
+	}
 }

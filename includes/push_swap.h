@@ -44,8 +44,8 @@ typedef struct s_stack
 char	**argv_check(char **argv, int argc);
 void	ft_error_ps(int err, char **nums_strings);
 int		check_empty(char *argv);
-int		nums_are_sorted(int *numbers, int arr_len);
 int		skip_chars(const char *string);
+int		nums_are_sorted(int *numbers, int arr_len);
 char	**join_args(char **argv, int argc);
 
 // PARSE FUNCTIONS
@@ -55,6 +55,7 @@ int		get_stack_size(char **args);
 
 // STACK OPERATIONS
 void	free_stack(t_stack **stack, int stack_size);
+int		stack_is_sorted(t_stack *stack);
 void	swap_ops(t_stack **stack_a, t_stack **stack_b, char c);
 void	push_ops(t_stack **stack_a, t_stack **stack_b, char c);
 void	rotate_stack(t_stack **stack_a, t_stack **stack_b, char c);

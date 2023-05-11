@@ -25,6 +25,21 @@ int	nums_are_sorted(int *numbers, int arr_len)
 	return (1);
 }
 
+// checks to see if numbers are already sorted
+int	stack_is_sorted(t_stack *stack)
+{
+	t_stack	*current;
+
+	current = stack;
+	while (current->next != stack)
+	{
+		if (current->data > current->next->data)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+
 // freeing a stack after sorting
 void	free_stack(t_stack **stack, int stack_size)
 {
