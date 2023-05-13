@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:01:22 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/30 16:16:34 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/13 21:18:38 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,13 @@ int	nums_are_sorted(int *numbers, int arr_len)
 	return (1);
 }
 
-// checks to see if numbers are already sorted
-int	stack_is_sorted(t_stack *stack)
-{
-	t_stack	*current;
-
-	current = stack;
-	while (current->next != stack)
-	{
-		if (current->data > current->next->data)
-			return (0);
-		current = current->next;
-	}
-	return (1);
-}
-
 // freeing a stack after sorting
 void	free_stack(t_stack **stack, int stack_size)
 {
 	t_stack	*current;
 	t_stack	*previous;
 
-	if (*stack == NULL)
+	if (!(*stack))
 		return ;
 	current = *stack;
 	while (stack_size--)
@@ -56,4 +41,21 @@ void	free_stack(t_stack **stack, int stack_size)
 		free(previous);
 	}
 	*stack = NULL;
+}
+
+int	get_stack_size(t_stack *stack)
+{
+	int		counter;
+	t_stack	*current;
+
+	if (!stack)
+		return 0;
+	counter = 1;
+	current = stack;
+	while (current->next != stack)
+	{
+		current = current->next;
+		counter++;
+	}
+	return (counter);
 }

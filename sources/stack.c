@@ -6,13 +6,13 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/30 16:26:44 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/13 21:14:57 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_stack_size(char **args)
+int	get_arr_size(char **args)
 {
 	int	arr_len;
 
@@ -52,7 +52,7 @@ void	add_node_bottom(t_stack **head, int num)
 	if (!new_node)
 		return ;
 	new_node->data = num;
-	if (*head == NULL)
+	if (!(*head))
 	{
 		*head = new_node;
 		new_node->next = new_node;
@@ -78,9 +78,4 @@ void	fill_stack_a(t_stack **stack_a, int *numbers, int stack_size)
 	while (++i < stack_size)
 		add_node_bottom(stack_a, numbers[i]);
 	free(numbers);
-	if (stack_is_sorted(*stack_a))
-	{
-		free_stack(stack_a, stack_size);
-		exit(0);
-	}
 }

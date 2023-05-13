@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:06:55 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/06 20:52:05 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/13 17:02:28 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@ static void	swap_nodes(t_stack **stack)
 {
 	t_stack	*tmp;
 
+	if (!(*stack))
+		return ;
 	tmp = *stack;
-	if (*stack)
-	{
-		*stack = (*stack)->next;
-		(*stack)->prev = tmp->prev;
-		tmp->prev->next = *stack;
-		tmp->prev = *stack;
-		tmp->next = (*stack)->next;
-		(*stack)->next->prev = tmp;
-		(*stack)->next = tmp;
-	}
+	*stack = (*stack)->next;
+	(*stack)->prev = tmp->prev;
+	tmp->prev->next = *stack;
+	tmp->prev = *stack;
+	tmp->next = (*stack)->next;
+	(*stack)->next->prev = tmp;
+	(*stack)->next = tmp;
 }
 
 void	swap_ops(t_stack **stack_a, t_stack **stack_b, char c)

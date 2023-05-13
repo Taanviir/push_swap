@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/06 20:54:15 by codespace        ###   ########.fr       */
+/*   Updated: 2023/05/13 21:15:01 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,21 @@ int		skip_chars(const char *string);
 int		nums_are_sorted(int *numbers, int arr_len);
 char	**join_args(char **argv, int argc);
 
-// PARSE FUNCTIONS
+// STACK FUNCTIONS
 void	fill_stack_a(t_stack **stack_a, int *numbers, int arr_len);
 int		*get_numbers(char **num_strings, int arr_len);
-int		get_stack_size(char **args);
+int		get_arr_size(char **args);
+int	get_stack_size(t_stack *stack);
 
 // STACK OPERATIONS
 void	free_stack(t_stack **stack, int stack_size);
-int		stack_is_sorted(t_stack *stack);
 void	swap_ops(t_stack **stack_a, t_stack **stack_b, char c);
 void	push_ops(t_stack **stack_a, t_stack **stack_b, char c);
 void	rotate_stack(t_stack **stack_a, t_stack **stack_b, char c);
 void	reverse_rotate_stack(t_stack **stack_a, t_stack **stack_b, char c);
-void print_list(t_stack *head);
 
 // SORT FUNCTIONS
-void	radix_sort(t_stack **stack_a, t_stack **stack_b);
+void	sort_three(t_stack **stack_a);
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_size);
 
 #endif
