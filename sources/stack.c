@@ -84,15 +84,18 @@ void	get_order(t_stack **stack_a, int *nums)
 	int		i;
 	t_stack	*current;
 
+	if (!(*stack_a))
+		return ;
+
 	current = *stack_a;
-	while (current->next != *stack_a)
+	while (1)
 	{
 		i = 0;
 		while (current->data != nums[i])
-		{
 			i++;
-		}
 		current->order = i;
 		current = current->next;
+		if (current == *stack_a)
+			break;
 	}
 }

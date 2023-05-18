@@ -14,22 +14,24 @@
 
 static int	partition(int *numbers, int start, int end)
 {
-	int	pivot;
 	int	i;
 	int	j;
+	int	pivot;
 
 	pivot = numbers[end];
 	i = start - 1;
 	j = start;
-	while (++j <= (end - 1))
+	while (j <= (end - 1))
+	{
 		if (numbers[j] <= pivot)
 		{
 			i++;
 			ft_swap(&numbers[i], &numbers[j]);
 		}
-	i++;
-	ft_swap(&numbers[i], &numbers[end]);
-	return (i);
+		j++;
+	}
+	ft_swap(&numbers[i + 1], &numbers[end]);
+	return (i + 1);
 }
 
 void	quicksort(int *numbers, int start, int end)

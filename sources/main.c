@@ -16,7 +16,7 @@ void print_list(t_stack *head)
 {
     t_stack *current = head;
     do {
-        printf("%d ", current->order);
+        printf("%d ", current->data);
         current = current->next;
     } while (current != head);
 	printf("\n\n");
@@ -25,11 +25,7 @@ void print_list(t_stack *head)
 void	push_swap(t_stack **a, t_stack **b, int *nums, int stack_size)
 {
 	quicksort(nums, 0, stack_size - 1);
-	for (int i = 0; i < stack_size; ++i)
-		printf("%d ", nums[i]);
 	get_order(a, nums);
-	printf("\nbefore sort:\n");
-	print_list(*a);
 	if (stack_size == 2)
 		swap_ops(a, NULL, 'a');
 	else if (stack_size == 3)
