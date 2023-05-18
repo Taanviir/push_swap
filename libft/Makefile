@@ -3,13 +3,14 @@ C_FLAGS 	= -Wall -Wextra -Werror
 
 SRC_PATH 	= sources
 OBJ_PATH 	= objects
-SUB_DIRS 	= error-utils ft_printf get_next_line is-utils linked-list memory-utils put-utils string-utils to-utils
+SUB_DIRS 	= error-utils ft_printf get_next_line int-utils is-utils linked-list memory-utils put-utils string-utils to-utils
 
 OBJS_DIRS 	= $(foreach directory, $(SUB_DIRS), $(addprefix $(OBJ_PATH)/, $(directory))) # adding the prefix objects/ to each subdirectory
 SRCS 		= $(SRC_PATH)/error-utils/ft_error.c \
 			$(SRC_PATH)/ft_printf/ft_print_char.c $(SRC_PATH)/ft_printf/ft_print_hex.c $(SRC_PATH)/ft_printf/ft_print_number.c $(SRC_PATH)/ft_printf/ft_print_pointer.c \
 			$(SRC_PATH)/ft_printf/ft_print_string.c $(SRC_PATH)/ft_printf/ft_print_unsigned.c $(SRC_PATH)/ft_printf/ft_printf.c \
 			$(SRC_PATH)/get_next_line/get_next_line.c \
+			$(SRC_PATH)/int-utils/ft_swap.c \
 			$(SRC_PATH)/is-utils/ft_isalnum.c $(SRC_PATH)/is-utils/ft_isalpha.c $(SRC_PATH)/is-utils/ft_isascii.c $(SRC_PATH)/is-utils/ft_isdigit.c $(SRC_PATH)/is-utils/ft_isprint.c \
 			$(SRC_PATH)/linked-list/ft_lstadd_back.c $(SRC_PATH)/linked-list/ft_lstadd_front.c $(SRC_PATH)/linked-list/ft_lstclear.c $(SRC_PATH)/linked-list/ft_lstdelone.c \
 			$(SRC_PATH)/linked-list/ft_lstiter.c $(SRC_PATH)/linked-list/ft_lstlast.c $(SRC_PATH)/linked-list/ft_lstmap.c $(SRC_PATH)/linked-list/ft_lstnew.c $(SRC_PATH)/linked-list/ft_lstsize.c \

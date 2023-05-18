@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/13 21:14:57 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/18 17:32:50 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,20 @@ void	fill_stack_a(t_stack **stack_a, int *numbers, int stack_size)
 	i = -1;
 	while (++i < stack_size)
 		add_node_bottom(stack_a, numbers[i]);
-	free(numbers);
+}
+
+void	get_order(t_stack **stack_a, int *nums)
+{
+	int		i;
+	t_stack	*current;
+
+	current = *stack_a;
+	while (current->next != *stack_a)
+	{
+		i = 0;
+		while (current->data != nums[i])
+			i++;
+		current->order = i;
+		current = current->next;
+	}
 }

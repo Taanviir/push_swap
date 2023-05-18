@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/13 21:15:01 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/18 17:24:22 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 typedef struct s_stack
 {
 	int				data;
+	int				order;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }		t_stack;
@@ -52,7 +53,9 @@ char	**join_args(char **argv, int argc);
 void	fill_stack_a(t_stack **stack_a, int *numbers, int arr_len);
 int		*get_numbers(char **num_strings, int arr_len);
 int		get_arr_size(char **args);
-int	get_stack_size(t_stack *stack);
+int		get_stack_size(t_stack *stack);
+int		is_sorted(t_stack *stack);
+void	get_order(t_stack **stack_a, int *nums);
 
 // STACK OPERATIONS
 void	free_stack(t_stack **stack, int stack_size);
@@ -64,5 +67,6 @@ void	reverse_rotate_stack(t_stack **stack_a, t_stack **stack_b, char c);
 // SORT FUNCTIONS
 void	sort_three(t_stack **stack_a);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_size);
+void	quicksort(int *numbers, int start, int end);
 
 #endif

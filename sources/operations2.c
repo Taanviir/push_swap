@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:06:55 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/13 17:02:28 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/18 15:31:09 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 static void	swap_nodes(t_stack **stack)
 {
-	t_stack	*tmp;
+	int	temp;
 
-	if (!(*stack))
+	if (!(*stack) || !((*stack)->next))
 		return ;
-	tmp = *stack;
-	*stack = (*stack)->next;
-	(*stack)->prev = tmp->prev;
-	tmp->prev->next = *stack;
-	tmp->prev = *stack;
-	tmp->next = (*stack)->next;
-	(*stack)->next->prev = tmp;
-	(*stack)->next = tmp;
+	temp = (*stack)->data;
+	(*stack)->data = (*stack)->next->data;
+	(*stack)->next->data = temp;
 }
 
 void	swap_ops(t_stack **stack_a, t_stack **stack_b, char c)

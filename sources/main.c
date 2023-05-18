@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 16:38:19 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/13 22:42:05 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/18 17:30:01 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,18 @@ void print_list(t_stack *head)
 	printf("\n\n");
 }
 
-void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
+void	push_swap(t_stack **a, t_stack **b, int *nums, int stack_size)
 {
+	quicksort(nums, 0, stack_size - 1);
+	get_order(a, nums);
 	if (stack_size == 2)
-		swap_ops(stack_a, NULL, 'a');
+		swap_ops(a, NULL, 'a');
 	else if (stack_size == 3)
-		sort_three(stack_a);
+		sort_three(a);
 	else
 	{
-		*stack_b = NULL;
-		radix_sort(stack_a, stack_b, stack_size);
-		// sort_three(stack_a);
+		*b = NULL;
+		radix_sort(a, b, stack_size);
 	}
 }
 
@@ -51,10 +52,16 @@ int	main(int argc, char **argv)
 	stack_size = get_arr_size(validated_args);
 	numbers = get_numbers(validated_args, stack_size);
 	fill_stack_a(&stack_a, numbers, stack_size);
-	push_swap(&stack_a, &stack_b, stack_size);
+	push_swap(&stack_a, &stack_b, numbers, stack_size);
+	free(numbers);
 
 	printf("\nafter swap:\n");
 	print_list(stack_a);
+	
+	if (is_sorted(stack_a))
+		printf("stack is sorted\n");
+	else
+		printf("stack is NOT sorted\n");
 
 	free_double_ptr((void **) validated_args);
 	free_stack(&stack_a, stack_size);

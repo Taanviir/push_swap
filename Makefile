@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#    By: tanas <tanas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 20:23:05 by tanas             #+#    #+#              #
-#    Updated: 2023/05/04 22:22:17 by codespace        ###   ########.fr        #
+#    Updated: 2023/05/18 17:00:10 by tanas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS_LIST = main.c \
 			stack_utils.c \
 			sort.c \
 			operations.c \
-			operations2.c
+			operations2.c \
+			sort2.c
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
 
 OBJS_DIR = objects/
