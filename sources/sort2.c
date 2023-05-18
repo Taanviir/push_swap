@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:38:50 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/18 17:04:12 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/18 18:04:06 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static int	partition(int *numbers, int start, int end)
 
 	pivot = numbers[end];
 	i = start - 1;
-	j = start - 1;
+	j = start;
 	while (++j <= (end - 1))
-		if (numbers[j] < pivot)
+		if (numbers[j] <= pivot)
 		{
 			i++;
 			ft_swap(&numbers[i], &numbers[j]);
