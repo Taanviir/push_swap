@@ -12,29 +12,14 @@
 
 #include "push_swap.h"
 
-void print_list(t_stack *head)
+void	push_swap(t_stack **a, t_stack **b, int stack_size)
 {
-    t_stack *current = head;
-    do {
-        printf("%d ", current->data);
-        current = current->next;
-    } while (current != head);
-	printf("\n\n");
-}
-
-void	push_swap(t_stack **a, t_stack **b, int *nums, int stack_size)
-{
-	quicksort(nums, 0, stack_size - 1);
-	get_order(a, nums);
 	if (stack_size == 2)
 		swap_ops(a, NULL, 'a');
 	else if (stack_size == 3)
 		sort_three(a);
-	else
-	{
-		*b = NULL;
+	else if (stack_size > 3)
 		radix_sort(a, b, stack_size);
-	}
 }
 
 int	main(int argc, char **argv)
@@ -52,18 +37,7 @@ int	main(int argc, char **argv)
 	stack_size = get_arr_size(validated_args);
 	numbers = get_numbers(validated_args, stack_size);
 	fill_stack_a(&stack_a, numbers, stack_size);
-	
-	push_swap(&stack_a, &stack_b, numbers, stack_size);
-	free(numbers);
-
-	printf("\nafter sort:\n");
-	print_list(stack_a);
-	
-	if (is_sorted(stack_a))
-		printf("stack is sorted\n");
-	else
-		printf("stack is NOT sorted\n");
-
+	push_swap(&stack_a, &stack_b, stack_size);
 	free_double_ptr((void **) validated_args);
 	free_stack(&stack_a, stack_size);
 }

@@ -17,9 +17,9 @@ void	sort_three(t_stack **stack_a)
 	t_stack	*max_node;
 	t_stack	*current;
 
-	max_node = (*stack_a);
+	max_node = *stack_a;
 	current = (*stack_a)->next;
-	while (current != (*stack_a))
+	while (current != *stack_a)
 	{
 		if (current->data > max_node->data)
 			max_node = current;
@@ -35,15 +35,14 @@ void	sort_three(t_stack **stack_a)
 
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
-	int	max_pos;
-	int	max_bits;
 	int	i;
 	int	j;
 	int	num;
+	int	max_bits;
 
-	max_pos = stack_size - 1;
+	(*stack_b) = NULL;
 	max_bits = 0;
-	while ((max_pos >> max_bits) != 0)
+	while (((stack_size - 1) >> max_bits) != 0)
 		max_bits++;
 	i = -1;
 	while (++i < max_bits)
@@ -52,7 +51,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_size)
 		while (++j < stack_size)
 		{
 			num = (*stack_a)->order;
-			if (((num >> i) & 1) == 1)
+			if ((num >> i) & 1)
 				rotate_stack(stack_a, NULL, 'a');
 			else
 				push_ops(stack_a, stack_b, 'b');

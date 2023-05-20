@@ -55,7 +55,6 @@ int		*get_numbers(char **num_strings, int arr_len);
 int		get_arr_size(char **args);
 int		get_stack_size(t_stack *stack);
 int		is_sorted(t_stack *stack);
-void	get_order(t_stack **stack_a, int *nums);
 
 // STACK OPERATIONS
 void	free_stack(t_stack **stack, int stack_size);

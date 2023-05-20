@@ -43,7 +43,7 @@ void	free_stack(t_stack **stack, int stack_size)
 	t_stack	*current;
 	t_stack	*previous;
 
-	if (!(*stack))
+	if (!stack || !(*stack))
 		return ;
 	current = *stack;
 	while (stack_size--)

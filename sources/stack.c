@@ -69,17 +69,7 @@ void	add_node_bottom(t_stack **head, int num)
 
 // filling up stack A by placing first number at the beginning of the list and
 // last number at the bottom of the list
-void	fill_stack_a(t_stack **stack_a, int *numbers, int stack_size)
-{
-	int		i;
-
-	(*stack_a) = NULL;
-	i = -1;
-	while (++i < stack_size)
-		add_node_bottom(stack_a, numbers[i]);
-}
-
-void	get_order(t_stack **stack_a, int *nums)
+static void	get_order(t_stack **stack_a, int *nums)
 {
 	int		i;
 	t_stack	*current;
@@ -98,4 +88,17 @@ void	get_order(t_stack **stack_a, int *nums)
 		if (current == *stack_a)
 			break;
 	}
+}
+
+void	fill_stack_a(t_stack **stack_a, int *numbers, int stack_size)
+{
+	int		i;
+
+	(*stack_a) = NULL;
+	i = -1;
+	while (++i < stack_size)
+		add_node_bottom(stack_a, numbers[i]);
+	quicksort(numbers, 0, stack_size - 1);
+	get_order(stack_a, numbers);
+	free(numbers);
 }
