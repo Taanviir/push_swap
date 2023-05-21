@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/18 17:55:09 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/21 15:47:31 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	get_arr_size(char **args)
 }
 
 // getting all the numbers from argv
-int	*get_numbers(char **num_strings, int arr_len)
+static int	*get_numbers(char **num_strings, int arr_len)
 {
 	int	*numbers;
 	int	i;
@@ -44,7 +44,7 @@ int	*get_numbers(char **num_strings, int arr_len)
 
 // linked list made with new nodes being added to the top
 // pointer to new node returned
-void	add_node_bottom(t_stack **head, int num)
+static void	add_node_bottom(t_stack **head, int num)
 {
 	t_stack	*new_node;
 
@@ -76,7 +76,6 @@ static void	get_order(t_stack **stack_a, int *nums)
 
 	if (!(*stack_a))
 		return ;
-
 	current = *stack_a;
 	while (1)
 	{
@@ -86,15 +85,17 @@ static void	get_order(t_stack **stack_a, int *nums)
 		current->order = i;
 		current = current->next;
 		if (current == *stack_a)
-			break;
+			break ;
 	}
 }
 
-void	fill_stack_a(t_stack **stack_a, int *numbers, int stack_size)
+void	fill_stack_a(t_stack **stack_a, char **validated_args, int stack_size)
 {
-	int		i;
+	int	i;
+	int	*numbers;
 
 	(*stack_a) = NULL;
+	numbers = get_numbers(validated_args, stack_size);
 	i = -1;
 	while (++i < stack_size)
 		add_node_bottom(stack_a, numbers[i]);

@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:01:22 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/18 16:40:23 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/21 16:39:34 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	nums_are_sorted(int *numbers, int arr_len)
 }
 
 // checks to see if numbers in stack are already sorted
-int is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	t_stack *current = stack;
 	while (current->next != stack)
