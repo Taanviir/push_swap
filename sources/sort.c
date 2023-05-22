@@ -6,60 +6,47 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:48:52 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/21 17:31:25 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/22 16:28:24 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	find_max_min(t_stack *stack_a, t_stack **max, t_stack **min)
+static void	bring_min_to_top(t_stack **stack_a)
 {
 	t_stack	*current;
+	t_stack	*min_node;
+	int		index;
 
-	*min = stack_a;
-	current = stack_a->next;
-	while (current != stack_a)
+	min_node = *stack_a;
+	current = (*stack_a)->next;
+	while (current != *stack_a)
 	{
-		if (current->data < (*min)->data)
-			*min = current;
+		if (current->order < (min_node)->order)
+			min_node = current;
 		current = current->next;
 	}
-	*max = stack_a;
-	current = stack_a->next;
-	while (current != stack_a)
-	{
-		if (current->data > (*max)->data)
-			*max = current;
+	current = *stack_a;
+	index = 0;
+	while (current != min_node && ++index)
 		current = current->next;
+	while (*stack_a != min_node)
+	{
+		if (index <= 2)
+			rotate_stack(stack_a, NULL, 'a');
+		else
+			reverse_rotate_stack(stack_a, NULL, 'a');
 	}
 }
 
-/*check the pos of min and max*/
 void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*min_node;
-	t_stack	*max_node;
-
-	find_max_min(*stack_a, &max_node, &min_node);
-	while (*stack_a != min_node)
-	{
-		if (min_node->order <= 2)
-			rotate_stack(stack_a, NULL, 'a');
-		else
-			reverse_rotate_stack(stack_a, NULL, 'a');
-	}
+	bring_min_to_top(stack_a);
 	push_ops(stack_a, stack_b, 'b');
-	while (*stack_a != max_node)
-	{
-		if (max_node->order < 2)
-			rotate_stack(stack_a, NULL, 'a');
-		else
-			reverse_rotate_stack(stack_a, NULL, 'a');
-	}
+	bring_min_to_top(stack_a);
 	push_ops(stack_a, stack_b, 'b');
 	sort_three(stack_a);
 	push_ops(stack_a, stack_b, 'a');
-	rotate_stack(stack_a, NULL, 'a');
 	push_ops(stack_a, stack_b, 'a');
 }
 
@@ -72,7 +59,7 @@ void	sort_three(t_stack **stack_a)
 	current = (*stack_a)->next;
 	while (current != *stack_a)
 	{
-		if (current->data > max_node->data)
+		if (current->order > (max_node)->order)
 			max_node = current;
 		current = current->next;
 	}

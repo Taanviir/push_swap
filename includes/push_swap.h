@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/21 17:19:14 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/22 16:25:00 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@
 // INCLUDES
 # include "libft.h"
 # include <stdio.h>
-# include <stdlib.h>
-
-// COLOUR CODES
-# define GREEN "\033[1;32m"
-# define RED "\033[1;3;31m"
-# define BLUE "\033[3;34m"
-# define YELLOW "\033[0;33m"
-# define WHITE "\033[0m"
 
 // EXIT CODES
 # define ERR_NO_PARAMS 1
