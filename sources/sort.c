@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:48:52 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/22 16:28:24 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/22 17:30:58 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	bring_min_to_top(t_stack **stack_a)
 		current = current->next;
 	while (*stack_a != min_node)
 	{
-		if (index <= 2)
+		if (index <= get_stack_size(*stack_a) / 2)
 			rotate_stack(stack_a, NULL, 'a');
 		else
 			reverse_rotate_stack(stack_a, NULL, 'a');
@@ -78,7 +78,6 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_size)
 	int	num;
 	int	max_bits;
 
-	(*stack_b) = NULL;
 	max_bits = 0;
 	while (((stack_size - 1) >> max_bits) != 0)
 		max_bits++;

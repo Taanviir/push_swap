@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 16:38:19 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/22 16:23:47 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/22 17:30:51 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	push_swap(t_stack **a, t_stack **b, int stack_size)
 {
+	*b = NULL;
 	if (stack_size == 2)
 		swap_ops(a, NULL, 'a');
 	else if (stack_size == 3)
