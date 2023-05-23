@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/23 16:31:57 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 17:21:53 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ static int	*get_numbers(char **num_strings, int arr_len)
 	while (++i < arr_len)
 		numbers[i] = ft_atoi(num_strings[i]);
 	numbers[i] = '\0';
-	if (nums_are_sorted(numbers, arr_len))
-	{
-		free_double_ptr((void **) num_strings);
-		exit(0);
-	}
 	return (numbers);
 }
 
@@ -106,14 +101,10 @@ void	fill_stack_a(t_stack **stack_a, char **validated_args, int stack_size)
 	quicksort(numbers, 0, stack_size - 1);
 	get_order(stack_a, numbers);
 	i = 0;
-	while (++i < stack_size)
-	{
+	while (++i < stack_size + 1)
 		if (numbers[i] == numbers[i - 1])
-		{
-			free(numbers);
-			free_stack(stack_a, stack_size);
-			ft_error_ps(ERR_DUPLICATES, validated_args);
-		}
-	}
+			close_prog(ERR_DUPLICATES, validated_args, numbers, stack_a);
+	if (is_sorted(*stack_a))
+		close_prog(0, validated_args, numbers, stack_a);
 	free(numbers);
 }

@@ -6,22 +6,26 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:01:22 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/23 16:12:37 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 17:19:12 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // checks to see if numbers are already sorted
-int	nums_are_sorted(int *numbers, int arr_len)
+int	is_sorted(t_stack *stack)
 {
-	int	i;
+	t_stack	*current;
 
-	i = -1;
-	while (++i < (arr_len - 1))
-		if (numbers[i] > numbers[i + 1])
+	if (!stack)
+		return (1);
+	current = stack;
+	while (current->next != stack)
+	{
+		if (current->data > current->next->data)
 			return (0);
-	free(numbers);
+		current = current->next;
+	}
 	return (1);
 }
 

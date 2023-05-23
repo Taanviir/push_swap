@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:49:57 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/23 14:11:16 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 17:25:03 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@ void	ft_error_ps(int err, char **num_strings)
 {
 	free_double_ptr((void **) num_strings);
 	ft_putendl_fd("Error", 2);
+	exit(err);
+}
+
+void	close_prog(int err, char **num_strings, int *nums, t_stack **stack)
+{
+	free(nums);
+	free_stack(stack, get_stack_size(*stack));
+	free_double_ptr((void **) num_strings);
+	if (err > 0)
+		ft_putendl_fd("Error", 2);
 	exit(err);
 }
 

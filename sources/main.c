@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 16:38:19 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/23 14:20:46 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 17:27:39 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,6 @@ void	push_swap(t_stack **a, t_stack **b, int stack_size)
 		radix_sort(a, b, stack_size);
 }
 
-void	print_list(t_stack *stack)
-{
-	t_stack *current = stack;
-	do {
-		printf("%d ", current->data);
-		current = current->next;
-	} while (current != stack);
-	printf("\n\n");
-}
-
 int	main(int argc, char **argv)
 {
 	char	**validated_args;
@@ -49,9 +39,6 @@ int	main(int argc, char **argv)
 	stack_size = get_arr_size(validated_args);
 	fill_stack_a(&stack_a, validated_args, stack_size);
 	push_swap(&stack_a, &stack_b, stack_size);
-
-	// print_list(stack_a);
-
 	free_double_ptr((void **) validated_args);
 	free_stack(&stack_a, stack_size);
 }
