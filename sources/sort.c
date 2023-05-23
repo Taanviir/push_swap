@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:48:52 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/22 17:30:58 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 13:57:34 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_size)
 		while (++j < stack_size)
 		{
 			num = (*stack_a)->order;
-			if ((num >> i) & 1)
+			if ((*stack_a)->data > (*stack_a)->prev->data) //(num >> i) & 1)
 				rotate_stack(stack_a, NULL, 'a');
 			else
 				push_ops(stack_a, stack_b, 'b');

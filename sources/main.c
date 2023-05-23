@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 16:38:19 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/22 17:30:51 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 13:13:07 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	push_swap(t_stack **a, t_stack **b, int stack_size)
 		sort_three(a);
 	else if (stack_size == 5)
 		sort_five(a, b);
-	else if (stack_size > 5)
+	else
 		radix_sort(a, b, stack_size);
 }
 

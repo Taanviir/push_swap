@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:01:22 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/22 16:24:19 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 13:51:54 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,23 @@ int	get_stack_size(t_stack *stack)
 		counter++;
 	}
 	return (counter);
+}
+
+int	find_int_dup(int *numbers)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (numbers[++i])
+	{
+		j = i + 1;
+		while (numbers[j])
+		{
+			if (numbers[i] == numbers[j])
+				return (0);
+			j++;
+		}
+	}
+	return (1);
 }

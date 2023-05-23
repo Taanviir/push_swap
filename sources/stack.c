@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/21 15:47:31 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 13:50:23 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,14 @@ static int	*get_numbers(char **num_strings, int arr_len)
 		ft_error_ps(ERR_MALLOC_FAIL, num_strings);
 	i = -1;
 	while (++i < arr_len)
+	{
 		numbers[i] = ft_atoi(num_strings[i]);
+		if (!find_int_dup(numbers))
+		{
+			free(numbers);
+			ft_error_ps(ERR_DUPLICATES, num_strings);
+		}
+	}
 	if (nums_are_sorted(numbers, arr_len))
 	{
 		free_double_ptr((void **) num_strings);

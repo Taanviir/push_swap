@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:49:57 by tanas             #+#    #+#             */
-/*   Updated: 2023/04/10 17:00:18 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 13:45:24 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,15 @@ char	**join_args(char **argv, int argc)
 	values = ft_strdup("");
 	i = -1;
 	while (++i < argc)
+	{
+		if (!check_empty(argv[i]))
+		{
+			ft_printf("Error\n");
+			free(values);
+			exit(ERR_EMPTY_ARG);
+		}
 		values = ft_strjoin(values, argv[i]);
+	}
 	strings = ft_split(values, ' ');
 	free(values);
 	return (strings);

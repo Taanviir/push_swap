@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/22 17:30:41 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 13:50:40 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define ERR_DUPLICATES 3
 # define ERR_MALLOC_FAIL 4
 # define ERR_INVALID_NUM 5
+# define ERR_EMPTY_ARG 6
 
 // STRUCTS
 typedef struct s_stack
@@ -37,6 +38,7 @@ typedef struct s_stack
 char	**argv_check(char **argv, int argc);
 void	ft_error_ps(int err, char **nums_strings);
 int		check_empty(char *argv);
+int		find_int_dup(int *numbers);
 int		skip_chars(const char *string);
 char	**join_args(char **argv, int argc);
 
@@ -55,8 +57,8 @@ void	reverse_rotate_stack(t_stack **stack_a, t_stack **stack_b, char c);
 
 // SORT FUNCTIONS
 void	sort_three(t_stack **stack_a);
+void	sort_five(t_stack **stack_a, t_stack **stack_b);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int stack_size);
 void	quicksort(int *numbers, int start, int end);
-void	sort_five(t_stack **stack_a, t_stack **stack_b);
 
 #endif
