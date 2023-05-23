@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 15:46:09 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/23 13:48:37 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 16:09:24 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,42 +35,6 @@ static int	check_num(char *num)
 		return (0);
 	else if (i == 10 && sign && (ft_strncmp(num, MININT, i) > 0))
 		return (0);
-	return (1);
-}
-
-// comparing numbers and checking for duplicates
-static int	ft_nbrcmp(const char *s1, const char *s2)
-{
-	int	i;
-	int	j;
-
-	i = skip_chars(s1);
-	j = skip_chars(s2);
-	while (s1[i] && s2[j] && s1[i] == s2[j])
-	{
-		i++;
-		j++;
-	}
-	return ((unsigned char) s1[i] - (unsigned char) s2[j]);
-}
-
-// finding duplicates. 0 returned if duplicate found
-static int	find_dup(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (argv[++i])
-	{
-		j = i + 1;
-		while (argv[j])
-		{
-			if (!ft_nbrcmp(argv[i], argv[j]))
-				return (0);
-			j++;
-		}
-	}
 	return (1);
 }
 
@@ -107,8 +71,6 @@ char	**argv_check(char **argv, int argc)
 		zeroes += find_zeroes(num_strings[i]);
 	}
 	if (zeroes > 1)
-		ft_error_ps(ERR_DUPLICATES, num_strings);
-	if (!find_dup(num_strings))
 		ft_error_ps(ERR_DUPLICATES, num_strings);
 	return (num_strings);
 }

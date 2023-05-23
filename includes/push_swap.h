@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/23 13:50:40 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 16:09:04 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_stack
 char	**argv_check(char **argv, int argc);
 void	ft_error_ps(int err, char **nums_strings);
 int		check_empty(char *argv);
-int		find_int_dup(int *numbers);
 int		skip_chars(const char *string);
 char	**join_args(char **argv, int argc);
 

@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/23 13:50:23 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 16:14:29 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,13 @@ static int	*get_numbers(char **num_strings, int arr_len)
 	int	*numbers;
 	int	i;
 
-	numbers = malloc(sizeof(int) * arr_len);
+	numbers = malloc(sizeof(int) * (arr_len + 1));
 	if (!numbers)
 		ft_error_ps(ERR_MALLOC_FAIL, num_strings);
 	i = -1;
 	while (++i < arr_len)
-	{
 		numbers[i] = ft_atoi(num_strings[i]);
-		if (!find_int_dup(numbers))
-		{
-			free(numbers);
-			ft_error_ps(ERR_DUPLICATES, num_strings);
-		}
-	}
+	numbers[i] = '\0';
 	if (nums_are_sorted(numbers, arr_len))
 	{
 		free_double_ptr((void **) num_strings);
@@ -96,6 +90,8 @@ static void	get_order(t_stack **stack_a, int *nums)
 	}
 }
 
+// fills stack_a with numbers, sorts numbers array, gets the order for the stack
+// then a loop checks for duplicates in the sorted array, finally frees the array
 void	fill_stack_a(t_stack **stack_a, char **validated_args, int stack_size)
 {
 	int	i;
@@ -108,5 +104,15 @@ void	fill_stack_a(t_stack **stack_a, char **validated_args, int stack_size)
 		add_node_bottom(stack_a, numbers[i]);
 	quicksort(numbers, 0, stack_size - 1);
 	get_order(stack_a, numbers);
+	i = 0;
+	while (++i < stack_size)
+	{
+		if (numbers[i] == numbers[i - 1])
+		{
+			free(numbers);
+			free_stack(stack_a, stack_size);
+			ft_error_ps(ERR_DUPLICATES, validated_args);
+		}
+	}
 	free(numbers);
 }
