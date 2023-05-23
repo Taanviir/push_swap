@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:48:05 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/23 16:14:29 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/23 16:31:57 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,9 @@ static void	get_order(t_stack **stack_a, int *nums)
 	}
 }
 
-// fills stack_a with numbers, sorts numbers array, gets the order for the stack
-// then a loop checks for duplicates in the sorted array, finally frees the array
+// fills stack_a with numbers, sorts numbers array, 
+// gets the order for the stackthen a loop checks for duplicates
+// in the sorted array, finally frees the array
 void	fill_stack_a(t_stack **stack_a, char **validated_args, int stack_size)
 {
 	int	i;
