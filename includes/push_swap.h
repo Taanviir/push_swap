@@ -6,7 +6,7 @@
 /*   By: tanas <tanas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:06:28 by tanas             #+#    #+#             */
-/*   Updated: 2023/05/23 17:21:48 by tanas            ###   ########.fr       */
+/*   Updated: 2023/05/25 13:51:21 by tanas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	close_prog(int err, char **strings, void *arr, t_stack **stack);
 
 // STACK FUNCTIONS
 void	fill_stack_a(t_stack **stack_a, char **validated_args, int stack_size);
-int		nums_are_sorted(int *numbers, int arr_len);
 int		get_arr_size(char **args);
 int		get_stack_size(t_stack *stack);
 int		is_sorted(t_stack *stack);
