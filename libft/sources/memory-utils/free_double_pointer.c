@@ -16,7 +16,7 @@ void	free_double_ptr(void **double_ptr)
 {
 	int	i;
 
-	if (!double_ptr)
+	if (!double_ptr || !(*double_ptr))
 		return ;
 	i = 0;
 	while (double_ptr[i])

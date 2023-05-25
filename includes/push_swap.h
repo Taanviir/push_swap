@@ -36,11 +36,9 @@ typedef struct s_stack
 
 // ERROR CHECK FUNCTIONS
 char	**argv_check(char **argv, int argc);
-void	ft_error_ps(int err, char **nums_strings);
 int		check_empty(char *argv);
-int		skip_chars(const char *string);
 char	**join_args(char **argv, int argc);
-void	close_prog(int err, char **num_strings, int *nums, t_stack **stack);
+void	close_prog(int err, char **strings, void *arr, t_stack **stack);
 
 // STACK FUNCTIONS
 void	fill_stack_a(t_stack **stack_a, char **validated_args, int stack_size);

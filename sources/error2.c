@@ -12,19 +12,11 @@
 
 #include "push_swap.h"
 
-// frees double pointer if argc is 2, prints error message and exits
-void	ft_error_ps(int err, char **num_strings)
+void	close_prog(int err, char **strings, void *arr, t_stack **stack)
 {
-	free_double_ptr((void **) num_strings);
-	ft_putendl_fd("Error", 2);
-	exit(err);
-}
-
-void	close_prog(int err, char **num_strings, int *nums, t_stack **stack)
-{
-	free(nums);
+	free(arr);
 	free_stack(stack, get_stack_size(*stack));
-	free_double_ptr((void **) num_strings);
+	free_double_ptr((void **) strings);
 	if (err > 0)
 		ft_putendl_fd("Error", 2);
 	exit(err);
@@ -43,17 +35,6 @@ int	check_empty(char *argv)
 	return (0);
 }
 
-// skips + and leading zeroes in a number
-int	skip_chars(const char *string)
-{
-	int	i;
-
-	i = 0;
-	while (string[i] == '+' || string[i] == '0')
-		i++;
-	return (i);
-}
-
 // joins args from '3 2 1 "4 5 6"' to '3 2 1 4 5 6 '
 char	**join_args(char **argv, int argc)
 {
@@ -67,7 +48,7 @@ char	**join_args(char **argv, int argc)
 	{
 		if (!check_empty(argv[i]))
 		{
-			ft_printf("Error\n");
+			ft_putendl_fd("Error", 2);
 			free(values);
 			exit(ERR_EMPTY_ARG);
 		}

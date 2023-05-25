@@ -67,10 +67,10 @@ char	**argv_check(char **argv, int argc)
 	while (num_strings[++i])
 	{
 		if (!check_num(num_strings[i]))
-			ft_error_ps(ERR_NON_NUMERIC, num_strings);
+			close_prog(ERR_NON_NUMERIC, num_strings, NULL, NULL);
 		zeroes += find_zeroes(num_strings[i]);
 	}
 	if (zeroes > 1)
-		ft_error_ps(ERR_DUPLICATES, num_strings);
+		close_prog(ERR_NON_NUMERIC, num_strings, NULL, NULL);
 	return (num_strings);
 }

@@ -28,13 +28,12 @@ static int	*get_numbers(char **num_strings, int arr_len)
 	int	*numbers;
 	int	i;
 
-	numbers = malloc(sizeof(int) * (arr_len + 1));
+	numbers = malloc(sizeof(int) * arr_len);
 	if (!numbers)
-		ft_error_ps(ERR_MALLOC_FAIL, num_strings);
+		close_prog(ERR_MALLOC_FAIL, num_strings, numbers, NULL);
 	i = -1;
 	while (++i < arr_len)
 		numbers[i] = ft_atoi(num_strings[i]);
-	numbers[i] = '\0';
 	return (numbers);
 }
 
@@ -73,7 +72,7 @@ static void	get_order(t_stack **stack_a, int *nums)
 	if (!(*stack_a))
 		return ;
 	current = *stack_a;
-	while (1)
+	while (current)
 	{
 		i = 0;
 		while (current->data != nums[i])
@@ -101,7 +100,7 @@ void	fill_stack_a(t_stack **stack_a, char **validated_args, int stack_size)
 	quicksort(numbers, 0, stack_size - 1);
 	get_order(stack_a, numbers);
 	i = 0;
-	while (++i < stack_size + 1)
+	while (++i < stack_size)
 		if (numbers[i] == numbers[i - 1])
 			close_prog(ERR_DUPLICATES, validated_args, numbers, stack_a);
 	if (is_sorted(*stack_a))

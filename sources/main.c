@@ -39,6 +39,5 @@ int	main(int argc, char **argv)
 	stack_size = get_arr_size(validated_args);
 	fill_stack_a(&stack_a, validated_args, stack_size);
 	push_swap(&stack_a, &stack_b, stack_size);
-	free_double_ptr((void **) validated_args);
-	free_stack(&stack_a, stack_size);
+	close_prog(0, validated_args, NULL, &stack_a);
 }
