@@ -30,5 +30,7 @@ make
 4. Run the push_swap executable:
 
 `./push_swap 2 3 1 4 ...` 
+
 or `./push_swap "2 3 1 4 ..."` 
+
 or `./push_swap 2 3 1 "4 6 5" ...` 
