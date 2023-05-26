@@ -18,14 +18,14 @@ My push_swap program utilizes radix sort (a non-comparative sorting algorithm) f
 
 ## Installation && Usage
 
-1. Clone the repository:
-git clone https://github.com/taanviir/push-swap.git
+1. Clone the repository: 
+`git clone https://github.com/taanviir/push-swap.git`
 
-2. Change into the project directory:
-cd push_swap
+2. Change into the project directory: 
+`cd push_swap`
 
-3. Compile the program:
-make
+3. Compile the program: 
+`make`
 
 4. Run the push_swap executable:
 
